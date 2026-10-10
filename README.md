@@ -35,25 +35,25 @@ APP_TIMEOUT=300 scripts/run_stress.sh headless --headless --duration 300
 
 ## 实测性能（2560x960，每目 1280x960）
 
-| 指标 | 数值 |
-|---|---|
-| 采集 | 30 fps |
-| 识别（NPU，YOLOv8n int8） | 30 fps，推理 18–23 ms/帧 |
+| 指标                            | 数值                                |
+| ------------------------------- | ----------------------------------- |
+| 采集                            | 30 fps                              |
+| 识别（NPU，YOLOv8n int8）       | 30 fps，推理 18–23 ms/帧           |
 | 测距（目标级 ROI SGBM，6 线程） | 24 ms（无目标）/ 44 ms（13 个目标） |
-| 端到端延迟 | 30–56 ms |
+| 端到端延迟                      | 30–56 ms                           |
 
 ## 目录
 
-| 目录 | 内容 |
-|---|---|
-| `src/` | C++ 源码（capture / detect / stereo / fusion / app / ui / tools） |
-| `build/` | 交叉编译产物、sysroot、部署 bundle、板端回传数据 |
-| `doc/` | 过程文档 01–06（设计、编译、模块、手册、性能、排错） |
-| `logs/` | 板端实测日志归档（监控采样、内核日志、应用输出、结论） |
-| `scripts/` | 构建/部署/运行脚本 + `agents/` 智能体定义 |
-| `skills/` | 沉淀的技能 `eye-range-rk3588`（含板卡事实与构建要点） |
-| `model/` `config/` | RKNN 模型与标签、运行配置与标定文件 |
-| `reference/` | 参考的开源双目/YOLO 项目 |
+| 目录                   | 内容                                                              |
+| ---------------------- | ----------------------------------------------------------------- |
+| `src/`               | C++ 源码（capture / detect / stereo / fusion / app / ui / tools） |
+| `build/`             | 交叉编译产物、sysroot、部署 bundle、板端回传数据                  |
+| `doc/`               | 过程文档 01–06（设计、编译、模块、手册、性能、排错）             |
+| `logs/`              | 板端实测日志归档（监控采样、内核日志、应用输出、结论）            |
+| `scripts/`           | 构建/部署/运行脚本 +`agents/` 智能体定义                        |
+| `skills/`            | 沉淀的技能`eye-range-rk3588`（含板卡事实与构建要点）            |
+| `model/` `config/` | RKNN 模型与标签、运行配置与标定文件                               |
+| `reference/`         | 参考的开源双目/YOLO 项目                                          |
 
 ## 关键设计
 
@@ -83,14 +83,14 @@ APP_TIMEOUT=300 scripts/run_stress.sh headless --headless --duration 300
 `reference/` 目录里是参考用的开源工程，**不随本仓库提交**（各自有独立许可证），
 需要时按下表自行 clone：
 
-| 目录 | 来源 |
-|---|---|
-| `Stereo-Detection` | https://github.com/wsk12345/Stereo-Detection |
+| 目录                                                 | 来源                                                                                |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `Stereo-Detection`                                 | https://github.com/wsk12345/Stereo-Detection                                        |
 | `Object-Detection-and-Tracking-with-Stereo-Vision` | https://github.com/trankietmashiro/Object-Detection-and-Tracking-with-Stereo-Vision |
-| `stereo-vision-python` | https://github.com/present-cjn/stereo-vision-python |
-| `vehicle-distance-estimation` | https://github.com/semihsivrikaya11/vehicle-distance-estimation |
-| `Stereo-Vision` | https://github.com/LearnTechWithUs/Stereo-Vision |
-| `Evision` | https://github.com/jiafeng5513/Evision |
+| `stereo-vision-python`                             | https://github.com/present-cjn/stereo-vision-python                                 |
+| `vehicle-distance-estimation`                      | https://github.com/semihsivrikaya11/vehicle-distance-estimation                     |
+| `Stereo-Vision`                                    | https://github.com/LearnTechWithUs/Stereo-Vision                                    |
+| `Evision`                                          | https://github.com/jiafeng5513/Evision                                              |
 
 `model/yolov8.rknn` 来自 Rockchip 的 rknn_model_zoo（Apache-2.0），
 `model/coco_80_labels_list.txt` 为其配套标签。
@@ -101,8 +101,8 @@ APP_TIMEOUT=300 scripts/run_stress.sh headless --headless --duration 300
 
 ```bash
 cat > scripts/board_env.sh <<'EOF'
-export BOARD_HOST=192.168.228.113
-export BOARD_USER=orangepi
+export BOARD_HOST=“板卡ip地址”
+export BOARD_USER=你的用户名
 export BOARD_PASS=你的密码
 export BOARD_ROOT=/home/orangepi/eye_range
 EOF
