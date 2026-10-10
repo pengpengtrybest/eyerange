@@ -1,0 +1,201 @@
+ 13:35:36 up  1:01,  3 users,  load average: 0.16, 0.03, 0.03
+[   12.656380] [dhd] ======== PULL WL_REG_ON(-1) LOW! ========
+[   12.656384] [WLAN_RFKILL]: rockchip_wifi_power: 0
+[   12.656390] [WLAN_RFKILL]: rockchip_wifi_power: toggle = false
+[   12.656394] wifi power off
+[   12.760954] [WLAN_RFKILL]: rockchip_wifi_power: toggle = false
+[   12.760970] [WLAN_RFKILL]: wifi shut off power [GPIO85-0]
+[   12.760980] [dhd] [wlan0] wl_android_wifi_off : out
+[   12.760991] [dhd] wl_android_post_init: 0
+[   12.760995] [dhd] dhdsdio_probe : mutex is released.
+[   12.761192] [dhd] _dhd_module_init: Exit err=0
+[   12.813755] [dhd] CFG80211-ERROR) wl_cfg80211_dump_station : WLC_GET_ASSOCLIST error -19
+[   12.912291] dwc3 fc000000.usb: request ffffff8104f3b400 was not queued to ep0out
+[   12.912500] android_work: did not send uevent (0 0 0000000000000000)
+[   12.914412] rd 0-7: Disabling EAS, schedutil is mandatory
+[   13.021741] xhci-hcd xhci-hcd.14.auto: xHCI Host Controller
+[   13.022184] xhci-hcd xhci-hcd.14.auto: new USB bus registered, assigned bus number 7
+[   13.022341] xhci-hcd xhci-hcd.14.auto: hcc params 0x0220fe64 hci version 0x110 quirks 0x0000800002010010
+[   13.022389] xhci-hcd xhci-hcd.14.auto: irq 81, io mem 0xfc000000
+[   13.022501] xhci-hcd xhci-hcd.14.auto: xHCI Host Controller
+[   13.022624] xhci-hcd xhci-hcd.14.auto: new USB bus registered, assigned bus number 8
+[   13.022638] xhci-hcd xhci-hcd.14.auto: Host supports USB 3.0 SuperSpeed
+[   13.022765] usb usb7: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.01
+[   13.022773] usb usb7: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[   13.022778] usb usb7: Product: xHCI Host Controller
+[   13.022783] usb usb7: Manufacturer: Linux 6.1.43-rockchip-rk3588 xhci-hcd
+[   13.022788] usb usb7: SerialNumber: xhci-hcd.14.auto
+[   13.023162] hub 7-0:1.0: USB hub found
+[   13.023192] hub 7-0:1.0: 1 port detected
+[   13.023975] usb usb8: We don't know the algorithms for LPM for this host, disabling LPM.
+[   13.024060] usb usb8: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 6.01
+[   13.024067] usb usb8: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[   13.024073] usb usb8: Product: xHCI Host Controller
+[   13.024078] usb usb8: Manufacturer: Linux 6.1.43-rockchip-rk3588 xhci-hcd
+[   13.024082] usb usb8: SerialNumber: xhci-hcd.14.auto
+[   13.024506] hub 8-0:1.0: USB hub found
+[   13.024529] hub 8-0:1.0: 1 port detected
+[   13.080952] rk-pcie fe170000.pcie: PCIe Link Fail, LTSSM is 0x3, hw_retries=1
+[   13.094270] rk-pcie fe190000.pcie: PCIe Link Fail, LTSSM is 0x3, hw_retries=1
+[   13.344296] usb 7-1: new high-speed USB device number 2 using xhci-hcd
+[   13.387037] [BT_RFKILL]: rfkill_rk_set_power: set bt wake_host high!
+[   13.411076] [BT_RFKILL]: rfkill_rk_set_power: set bt wake_host input!
+[   13.411122] [BT_RFKILL]: ENABLE UART_RTS
+[   13.413405] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[   13.413428] Bluetooth: BNEP filters: protocol multicast
+[   13.413448] Bluetooth: BNEP socket layer initialized
+[   13.520965] [BT_RFKILL]: DISABLE UART_RTS
+[   13.521019] [BT_RFKILL]: bt turn on power
+[   13.521042] [BT_RFKILL]: Request irq for bt wakeup host
+[   13.521069] [BT_RFKILL]: ** disable irq
+[   13.543875] usb 7-1: New USB device found, idVendor=1bcf, idProduct=2d4f, bcdDevice=27.40
+[   13.543887] usb 7-1: New USB device strings: Mfr=1, Product=4, SerialNumber=3
+[   13.543892] usb 7-1: Product: DECXIN Camera
+[   13.543895] usb 7-1: Manufacturer: DECXIN
+[   13.543898] usb 7-1: SerialNumber: 01.00.00
+[   13.586598] usb 7-1: Found UVC 1.00 device DECXIN Camera (1bcf:2d4f)
+[   13.653858] input: DECXIN Camera: DECXIN Camera as /devices/platform/usbdrd3_0/fc000000.usb/xhci-hcd.14.auto/usb7/7-1/7-1:1.0/input/input6
+[   13.916246] [dhd] dhd_pri_open : no mutex held
+[   13.916258] [dhd] dhd_pri_open : set mutex lock
+[   13.916261] [dhd] [wlan0] dhd_open : Enter
+[   13.916264] [dhd] Dongle Host Driver, version 101.10.591.46.22 (20231003-3)(a5ec15e)
+               drivers/net/wireless/rockchip_wlan/rkwifi/bcmdhd compiled on Jul  5 2024 at 01:16:18
+
+[   13.916273] [dhd] dhd_open: ######### called for ifidx=0 #########
+[   13.916283] [dhd] [wlan0] wl_android_wifi_on : in g_wifi_on=0
+[   13.916288] [dhd] wifi_platform_set_power = 1, delay: 200 msec
+[   13.916292] [dhd] ======== PULL WL_REG_ON(-1) HIGH! ========
+[   13.916296] [WLAN_RFKILL]: rockchip_wifi_power: 1
+[   13.916301] [WLAN_RFKILL]: rockchip_wifi_power: toggle = false
+[   14.024294] [WLAN_RFKILL]: wifi turn on power [GPIO85-1]
+[   14.094325] rk-pcie fe170000.pcie: failed to initialize host
+[   14.121077] rk-pcie fe190000.pcie: failed to initialize host
+[   14.230962] [dhd] wifi_platform_set_power = 1, sleep done: 200 msec
+[   14.230991] [dhd] sdio_sw_reset: call mmc_hw_reset
+[   14.451152] mmc_host mmc2: Bus speed (slot 0) = 400000Hz (slot req 400000Hz, actual 400000HZ div = 0)
+[   14.558090] mmc_host mmc2: Bus speed (slot 0) = 150000000Hz (slot req 150000000Hz, actual 150000000HZ div = 0)
+[   14.691222] dwmmc_rockchip fe2d0000.mmc: Successfully tuned phase to 122
+[   14.691395] [dhd] sdioh_start: set sd_f2_blocksize 256
+[   14.692267] [dhd] dhd_bus_devreset: == Power ON ==
+[   14.692535] [dhd] F1 signature read @0x18000000=0x1040aabf
+[   14.696072] [dhd] F1 signature OK, socitype:0x1 chip:0xaabf rev:0x0 pkg:0x4
+[   14.696396] [dhd] DHD: dongle ram size is set to 1310720(orig 1310720) at 0x170000
+[   14.696428] [dhd] dhd_bus_devreset: making DHD_BUS_DOWN
+[   14.696445] [dhd] dhdsdio_probe_init: making DHD_BUS_DOWN
+[   14.696526] [dhd] dhd_conf_set_path_params : Final fw_path=/fw_syn43711a0_sdio.bin
+[   14.696531] [dhd] dhd_conf_set_path_params : Final nv_path=/nvram_ap6611s.txt
+[   14.696534] [dhd] dhd_conf_set_path_params : Final clm_path=/clm_syn43711a0.blob
+[   14.696538] [dhd] dhd_conf_set_path_params : Final conf_path=/config.txt
+[   15.025670] [dhd] dhd_os_get_img_fwreq: /config.txt (240 bytes) open success
+[   15.025767] [dhd] dhd_conf_read_pm_params : PM = 0
+[   15.025775] [dhd] dhd_conf_read_pm_params : pm_in_suspend = 2
+[   15.025783] [dhd] dhd_conf_read_others : keep_alive_period = 120000
+[   15.025788] [dhd] dhd_conf_read_others : garp = 1
+[   15.025793] [dhd] dhd_conf_read_pm_params : suspend_bcn_li_dtim = 10
+[   15.025801] [dhd] dhd_conf_read_others : wl_preinit = pm2_sleep_ret=20
+[   15.025808] [dhd] dhd_conf_read_pkt_filter : pkt_filter_del id = 100 102 103 104 105 107 
+[   15.025831] [dhd] dhd_conf_read_pkt_filter : pkt_filter_add[0][] = 142 0 0 77 0xffffffffffffffffffffffffffffff 0x2F6465766963652F77616B6575702F
+[   15.042168] [dhd] dhd_os_get_img_fwreq: /fw_syn43711a0_sdio.bin (752242 bytes) open success
+[   15.087542] [dhd] dhd_os_get_img_fwreq: /nvram_ap6611s.txt (6871 bytes) open success
+[   15.087601] [dhd] # AP6611S_NVRAM_V0.1_20231016
+[   15.088198] [dhd] dhdsdio_write_vars: Download, Upload and compare of NVRAM succeeded.
+[   15.172237] [dhd] dhd_bus_init: enable 0x06, ready 0x06 (waited 0us)
+[   15.172396] [dhd] bcmsdh_oob_intr_register: HW_OOB irq=147 flags=0x4
+[   15.173216] [dhd] dhd_dpc_thread: set dhd_dpc_prio 98
+[   15.175322] [dhd] wlc_ver_major 12, wlc_ver_minor 2
+[   15.175505] [dhd] dhd_bus_check_srmemsize : srmem_size no need to change.
+[   15.175512] [dhd] dhd_tcpack_suppress_set: TCP ACK Suppress mode 2 -> mode 1
+[   15.175518] [dhd] dhd_tcpack_suppress_set: TCPACK_INFO_MAXNUM=40, TCPDATA_INFO_MAXNUM=40
+[   15.177519] [dhd] dhd_legacy_preinit_ioctls: use firmware generated mac_address 9c:b8:b4:22:41:06
+[   15.183158] [dhd] dhd_os_get_img_fwreq: /clm_syn43711a0.blob (20121 bytes) open success
+[   15.185225] [dhd] dhd_check_current_clm_data: ----- This FW is not included CLM data -----
+[   15.201623] [dhd] dhd_apply_default_clm: CLM download succeeded 
+[   15.202846] [dhd] dhd_check_current_clm_data: ----- This FW is included CLM data -----
+[   15.205142] [dhd] Firmware up: op_mode=0x0005, MAC=9c:b8:b4:22:41:06
+[   15.211569] [dhd] dhd_legacy_preinit_ioctls: event_log_max_sets: 26 ret: 0
+[   15.214700] [dhd] arp_enable:1 arp_ol:0
+[   15.214708] [dhd] dhd_conf_add_pkt_filter : 142 0 0 77 0xffffffffffffffffffffffffffffff 0x2F6465766963652F77616B6575702F
+[   15.226212] [dhd]   Driver: 101.10.591.46.22 (20231003-3)
+               [dhd]   Firmware: wl0: Oct 12 2023 23:28:29 version 18.42.23 (g32f7eb26) FWID 01-c6370cb4
+               [dhd]   CLM: syna43711a0.master (2023-08-22 06:06:08) 
+[   15.226559] [dhd] dhd_txglom_enable: enable 1
+[   15.226565] [dhd] dhd_conf_set_txglom_params : txglom_mode=copy
+[   15.226570] [dhd] dhd_conf_set_txglom_params : txglomsize=36, deferred_tx_len=0
+[   15.226574] [dhd] dhd_conf_set_txglom_params : txinrx_thres=128, dhd_txminmax=-1
+[   15.226578] [dhd] dhd_conf_set_txglom_params : tx_max_offset=0, txctl_tmo_fix=300
+[   15.226585] [dhd] dhd_conf_get_disable_proptx : fw_proptx=1, disable_proptx=-1
+[   15.232035] [dhd] dhd_wlfc_hostreorder_init(): successful bdcv2 tlv signaling, 64
+[   15.274981] [dhd] dhd_ecounter_autoconfig Ecounter autoconfig in FW not supported
+[   15.276614] [dhd] failed to start ecounters
+[   15.276622] [dhd] dhd_ecounter_configure Ecounters start failed
+[   15.276992] [dhd] dhd_legacy_preinit_ioctls: d3_hostwake_delay IOVAR not present, proceed
+[   15.336322] [dhd] CFG80211-ERROR) wl_cfg80211_event : Event handler is not created (WLC_E_ALLOW_CREDIT_BORROW)
+[   15.336809] [dhd] dhd_conf_same_country : country code = US/0 is already configured
+[   15.342010] [dhd] [wlan0] wl_android_wifi_on : Success
+[   15.408361] [dhd] CFG80211-ERROR) __wl_update_wiphybands : error reading txbf_bfe_cap (-23)
+[   15.408937] [dhd] CFG80211-ERROR) __wl_update_wiphybands : error reading txbf_bfr_cap (-23)
+[   15.503243] [dhd] [wlan0] wl_cfg80211_up : Roam channel cache enabled
+[   15.507237] [dhd] [wlan0] dhd_open : Exit ret=0
+[   15.507253] [dhd] [wlan0] dhd_pri_open : tx queue started
+[   15.507258] [dhd] dhd_pri_open : mutex is released.
+[   15.558988] of_dma_request_slave_channel: dma-names property of node '/serial@feba0000' missing or empty
+[   15.559014] dw-apb-uart feba0000.serial: failed to request DMA, use interrupt mode
+[   15.840104] [dhd] P2P interface registered
+[   15.871246] [dhd] P2P interface started
+[   15.897829] [dhd] [wlan0] wl_run_escan : LEGACY_SCAN sync ID: 0, bssidx: 0
+[   16.504552] Bluetooth: HCI UART driver ver 2.3
+[   16.504572] Bluetooth: HCI UART protocol H4 registered
+[   16.504576] Bluetooth: HCI UART protocol BCSP registered
+[   16.504579] Bluetooth: HCI UART protocol ATH3K registered
+[   16.505205] Bluetooth: HCI UART protocol Intel registered
+[   16.505213] Bluetooth: HCI UART protocol AG6XX registered
+[   16.522711] Bluetooth: hci1: Failed to read codec capabilities (-22)
+[   16.523111] Bluetooth: hci1: Failed to read codec capabilities (-22)
+[   16.523504] Bluetooth: hci1: Failed to read codec capabilities (-22)
+[   16.523895] Bluetooth: hci1: Failed to read codec capabilities (-22)
+[   16.524286] Bluetooth: hci1: Failed to read codec capabilities (-22)
+[   16.524747] Bluetooth: hci1: Failed to read codec capabilities (-22)
+[   16.525226] Bluetooth: hci1: Failed to read codec capabilities (-22)
+[   16.525640] Bluetooth: hci1: Failed to read codec capabilities (-22)
+[   16.526045] Bluetooth: hci1: Failed to read codec capabilities (-22)
+[   16.531730] Bluetooth: MGMT ver 1.22
+[   16.592718] mali fb000000.gpu: Loading Mali firmware 0x1010000
+[   16.595837] mali fb000000.gpu: Mali firmware git_sha: 221d2b3e5f4cf47df6227ccb24c82c4e4baa986e 
+[   19.636919] rockchip-vop2 fdd90000.vop: [drm:vop2_crtc_atomic_disable] Crtc atomic disable vp0
+[   19.669371] rockchip-vop2 fdd90000.vop: [drm:vop2_crtc_atomic_enable] Update mode to 1280x960p60, type: 11(if:800, flag:0x0) for vp0 dclk: 108000000
+[   19.669514] rockchip-hdptx-phy-hdmi fed60000.hdmiphy: hdptx_ropll_cmn_config bus_width:107ac0 rate:1485000
+[   19.669778] rockchip-hdptx-phy-hdmi fed60000.hdmiphy: hdptx phy pll locked!
+[   19.669809] rockchip-vop2 fdd90000.vop: [drm:vop2_crtc_atomic_enable] dclk_out0 div: 0 dclk_core0 div: 2
+[   19.669868] rockchip-hdptx-phy-hdmi fed60000.hdmiphy: hdptx_ropll_cmn_config bus_width:107ac0 rate:1080000
+[   19.670133] rockchip-hdptx-phy-hdmi fed60000.hdmiphy: hdptx phy pll locked!
+[   19.670135] rockchip-vop2 fdd90000.vop: [drm:vop2_crtc_atomic_enable] set dclk_vop0 to 108000000, get 108000000
+[   19.686835] dwhdmi-rockchip fde80000.hdmi: final tmdsclk = 108000000
+[   19.686864] dwhdmi-rockchip fde80000.hdmi: don't use dsc mode
+[   19.686867] dwhdmi-rockchip fde80000.hdmi: dw hdmi qp use tmds mode
+[   19.686871] rockchip-hdptx-phy-hdmi fed60000.hdmiphy: bus_width:0x107ac0,bit_rate:1080000
+[   19.687057] rockchip-hdptx-phy-hdmi fed60000.hdmiphy: hdptx phy lane locked!
+[   19.854007] rockchip-vop2 fdd90000.vop: [drm:vop2_crtc_atomic_disable] Crtc atomic disable vp0
+[   20.920796] rockchip-vop2 fdd90000.vop: [drm:vop2_crtc_atomic_enable] Update mode to 1280x960p60, type: 11(if:800, flag:0x0) for vp0 dclk: 108000000
+[   20.921430] rockchip-hdptx-phy-hdmi fed60000.hdmiphy: hdptx_ropll_cmn_config bus_width:107ac0 rate:1080000
+[   20.921727] rockchip-hdptx-phy-hdmi fed60000.hdmiphy: hdptx phy pll locked!
+[   20.921776] rockchip-vop2 fdd90000.vop: [drm:vop2_crtc_atomic_enable] dclk_out0 div: 0 dclk_core0 div: 2
+[   20.921804] rockchip-vop2 fdd90000.vop: [drm:vop2_crtc_atomic_enable] set dclk_vop0 to 108000000, get 108000000
+[   20.938566] dwhdmi-rockchip fde80000.hdmi: final tmdsclk = 108000000
+[   20.938632] dwhdmi-rockchip fde80000.hdmi: don't use dsc mode
+[   20.938638] dwhdmi-rockchip fde80000.hdmi: dw hdmi qp use tmds mode
+[   20.938647] rockchip-hdptx-phy-hdmi fed60000.hdmiphy: bus_width:0x107ac0,bit_rate:1080000
+[   20.938848] rockchip-hdptx-phy-hdmi fed60000.hdmiphy: hdptx phy lane locked!
+[   21.022057] Bluetooth: RFCOMM TTY layer initialized
+[   21.022085] Bluetooth: RFCOMM socket layer initialized
+[   21.022099] Bluetooth: RFCOMM ver 1.11
+[   22.121092] [dhd] [wlan0] wl_conn_debug_info : Connecting with 1a:85:b6:42:1d:1d ssid "Redmi K30 Pro", len (13), channel=2g-6(chan_cnt=1), sec=wpa2/psk/mfpc/aes, rssi=-25
+[   22.197768] [dhd] [wlan0] wl_iw_event : Link UP with 1a:85:b6:42:1d:1d
+[   22.197800] [dhd] [wlan0] wl_ext_iapsta_link : [S] Link UP with 1a:85:b6:42:1d:1d
+[   22.201445] [dhd] [wlan0] wl_bss_connect_done : Report connect result - connection succeeded
+[   22.213756] [dhd] [wlan0] wl_add_keyext : key index (0) for 1a:85:b6:42:1d:1d
+[   22.217042] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+[   22.219451] [dhd] [wlan0] wl_cfg80211_set_suspend_bcn_li_dtim : bcn_li_dtim:0 lpas:0 bcn_to_dly:0
+[   24.580805] [dhd] [wlan0] wl_run_escan : LEGACY_SCAN sync ID: 1, bssidx: 0
+[   26.681693] platform mtd_vendor_storage: deferred probe pending
+[  130.810813] ttyFIQ ttyFIQ0: tty_port_close_start: tty->count = 1 port count = 2
+[  140.821980] ttyFIQ ttyFIQ0: tty_port_close_start: tty->count = 1 port count = 2

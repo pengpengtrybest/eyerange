@@ -1,0 +1,3 @@
+interface:
+  display_name: "RK3588 双目 YOLO 测距"
+  short_description: "交叉编译/部署/调优 OrangePi 5 Max 上的双目 YOLO 测距工程"

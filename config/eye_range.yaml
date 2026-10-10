@@ -1,0 +1,56 @@
+%YAML:1.0
+---
+# eye_range 运行配置（OrangePi 5 Max + DECXIN 双目）
+# 命令行参数会覆盖这里的取值
+capture:
+   device: "/dev/video0"      # 双目模块：单设备输出左右拼接帧
+   width: 2560                # 总宽 = 每目 1280
+   height: 960                # 每目 1280x960
+   fps: 30
+   buffer_count: 4
+   swap_eyes: 0
+
+detect:
+   model: "model/yolov8.rknn"
+   labels: "model/coco_80_labels_list.txt"
+   conf: 0.35
+   nms: 0.45
+   npu_core: -1               # -1=AUTO, 0/1/2=单核, -2=三核
+   max_detections: 64
+
+stereo:
+   calib: "config/calib.yaml"
+   num_disparities: 128       # 16 的倍数，决定最近可测距离
+   min_disparity: 0
+   block_size: 5
+   uniqueness_ratio: 10
+   disp12_max_diff: 1
+   speckle_window: 100
+   speckle_range: 2
+   pre_filter_cap: 63
+   use_wls: 0
+   roi_only: 1                # 1=只在目标附近做匹配（快）
+   roi_margin: 16
+   max_roi_side: 640          # ROI 最长边超过它就内部降采样
+   band_max_height: 128       # 目标带最大行数（越大越慢）
+   display_scale: 0.25        # 界面显示用的降采样比例
+   display_num_disparities: 64
+   threads: 4                 # 目标级并行线程数（RK3588 8 核；供电吃紧可降到 2）
+   opencv_threads: 1          # OpenCV 内部线程数（避免与线程池抢核）
+   min_confidence: 0.35
+   fallback_baseline_mm: 60.0 # 未标定时的兜底值
+   fallback_fx: 0.0           # 0 表示按 0.85*单目宽度估算
+
+ui:
+   # 铺满屏幕的两种做法：
+   #   fullscreen=1 真正的 EWMH 全屏（默认；2026-10-09 更换电源后实测稳定）
+   #   borderless=1 无边框窗口铺满可用区域（不覆盖 xfce 面板，功耗峰值略低）
+   # 注意：早期"一跑界面就重启"是供电不足导致，不是这两个模式的锅；换电源后均正常。
+   fullscreen: 1
+   borderless: 0
+   show_depth: 1
+   show_disparity: 1
+   fps: 20                    # 界面刷新率（纯软件渲染，降下来可明显省电）
+   smooth_scale: 0            # 视频缩放是否平滑插值（默认关）
+   window_width: 1600
+   window_height: 900

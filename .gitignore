@@ -1,0 +1,22 @@
+# ---- 编译产物 / 交叉编译 sysroot（体积大，可由脚本重建）----
+/build/
+
+# ---- 第三方参考工程（各自带 .git，请自行 clone，见 README）----
+/reference/
+
+# ---- 本地私有配置（含板卡密码等凭据，禁止入库）----
+/scripts/board_env.sh
+
+# ---- 运行期产物 ----
+/snapshots/
+/out/
+/out-pair/
+/calib_images/
+*.log.tmp
+
+# ---- 编辑器 / 系统 ----
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
