@@ -14,6 +14,7 @@
 import os
 import posixpath
 import stat
+import subprocess
 import sys
 import warnings
 
@@ -28,19 +29,52 @@ except ImportError:  # pragma: no cover
     sys.exit("缺少 paramiko: pip3 install paramiko")
 
 
-HOST = os.environ.get("BOARD_HOST", "192.168.228.113")
-USER = os.environ.get("BOARD_USER", "orangepi")
-# 密码不写死在代码里：从环境变量或 scripts/board_env.sh 取
-PASS = os.environ.get("BOARD_PASS", "")
-PORT = int(os.environ.get("BOARD_PORT", "22"))
+def _load_local_env():
+    """读取本地私有配置 scripts/board_env.sh（不入库）。
+
+    这样单独调用 board.py 也能拿到密码，同时避免把凭据写进代码。
+    环境变量优先于该文件。
+    """
+    env_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "board_env.sh")
+    if not os.path.isfile(env_file):
+        return {}
+    try:
+        out = subprocess.run(
+            ["bash", "-c", 'set -a; . "$1"; env -0', "_", env_file],
+            capture_output=True,
+            timeout=10,
+        ).stdout
+    except Exception:
+        return {}
+    values = {}
+    for chunk in out.split(b"\0"):
+        if not chunk or b"=" not in chunk:
+            continue
+        key, _, val = chunk.partition(b"=")
+        values[key.decode("utf-8", "replace")] = val.decode("utf-8", "replace")
+    return values
+
+
+_LOCAL = _load_local_env()
+
+
+def _setting(name, default=""):
+    return os.environ.get(name) or _LOCAL.get(name) or default
+
+
+HOST = _setting("BOARD_HOST", "192.168.228.113")
+USER = _setting("BOARD_USER", "orangepi")
+PASS = _setting("BOARD_PASS")  # 密码只来自环境变量或 scripts/board_env.sh
+PORT = int(_setting("BOARD_PORT", "22"))
 
 
 def connect():
     if not PASS:
         sys.exit(
-            "缺少板卡密码。请设置环境变量 BOARD_PASS，或创建 scripts/board_env.sh：\n"
+            "缺少板卡密码。请创建 scripts/board_env.sh（不入库）：\n"
             "  export BOARD_PASS=<密码>\n"
-            "（可先执行 scripts/run_board.sh 等脚本，它们会自动加载 board_env.sh）"
+            "或临时用环境变量：BOARD_PASS=<密码> python3 scripts/board.py run '...'\n"
+            "（模板见 scripts/board_env.defaults.sh 顶部注释）"
         )
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())

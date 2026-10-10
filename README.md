@@ -4,6 +4,16 @@
 YOLOv8 识别目标 → 对每个目标做立体匹配测距 → Qt 界面实时显示画面、距离与视差/深度图。
 本机（WSL）交叉编译，产物传到板上运行。
 
+> **智能体/协作者先读 [AGENTS.md](AGENTS.md)**：项目总纲（目录契约、工具清单、
+> 标准工作流、红线、完成判据）。项目管理入口：`scripts/manage.sh`。
+
+```bash
+scripts/manage.sh overview     # 项目结构与产物体检
+scripts/manage.sh tools        # 工具与智能体清单
+scripts/manage.sh check        # 工具链/Qt/sysroot/git/板子连通性
+scripts/manage.sh workflows    # 标准工作流命令
+```
+
 ## 快速开始
 
 ```bash
@@ -48,12 +58,13 @@ APP_TIMEOUT=300 scripts/run_stress.sh headless --headless --duration 300
 | ---------------------- | ----------------------------------------------------------------- |
 | `src/`               | C++ 源码（capture / detect / stereo / fusion / app / ui / tools） |
 | `build/`             | 交叉编译产物、sysroot、部署 bundle、板端回传数据                  |
-| `doc/`               | 过程文档 01–06（设计、编译、模块、手册、性能、排错）             |
+| `doc/`               | 过程文档 01–07（设计、编译、模块、手册、性能、排错、总览）       |
 | `logs/`              | 板端实测日志归档（监控采样、内核日志、应用输出、结论）            |
-| `scripts/`           | 构建/部署/运行脚本 +`agents/` 智能体定义                        |
+| `scripts/`           | 构建/部署/运行/诊断脚本 + `agents/` 智能体定义 + `manage.sh` 管理入口 |
 | `skills/`            | 沉淀的技能`eye-range-rk3588`（含板卡事实与构建要点）            |
 | `model/` `config/` | RKNN 模型与标签、运行配置与标定文件                               |
 | `reference/`         | 参考的开源双目/YOLO 项目                                          |
+| `AGENTS.md`          | 项目总纲（智能体先读）                                            |
 
 ## 关键设计
 
