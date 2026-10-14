@@ -20,7 +20,7 @@ detect:
 
 stereo:
    calib: "config/calib.yaml"
-   num_disparities: 128       # 16 的倍数，决定最近可测距离
+   num_disparities: 192       # 16 的倍数，决定最近可测距离（62.36/d：192→最近 0.32m，128 只能到 0.49m）
    min_disparity: 0
    block_size: 5
    uniqueness_ratio: 10
