@@ -27,12 +27,15 @@ scripts/
 
 ```bash
 cat > scripts/board_env.sh <<'EOF'
-export BOARD_HOST=192.168.228.113
+export BOARD_HOST=192.168.228.56   # 板子走 DHCP，地址变了就改这里
 export BOARD_USER=orangepi
 export BOARD_PASS=你的密码
 export BOARD_ROOT=/home/orangepi/eye_range
 EOF
 ```
+
+加载顺序是「先私有文件、后默认值」，所以同一优先级下以 `board_env.sh` 为准：
+**环境变量 > `board_env.sh` > `board_env.defaults.sh`**。
 
 也可以临时用环境变量覆盖：`BOARD_PASS=xxx scripts/run_board.sh sysinfo`。
 

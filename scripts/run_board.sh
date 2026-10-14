@@ -9,13 +9,15 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# shellcheck source=board_env.sh
-source "${SCRIPT_DIR}/board_env.defaults.sh"
+# 先读本地私有配置，再用默认值兜底：
+# 优先级 = 环境变量 > scripts/board_env.sh > scripts/board_env.defaults.sh
 if [[ -f "${SCRIPT_DIR}/board_env.sh" ]]; then
   # 本地私有凭据（不入库）
   # shellcheck source=board_env.sh
   source "${SCRIPT_DIR}/board_env.sh"
 fi
+# shellcheck source=board_env.sh
+source "${SCRIPT_DIR}/board_env.defaults.sh"
 
 mode="${1:-sysinfo}"
 shift || true
@@ -35,8 +37,14 @@ case "${mode}" in
   ui)
     # 板上跑着 Xorg(:0)，通过 SSH 启动界面会显示在 HDMI 显示器上。
     # 用 setsid 脱离会话：SSH 断开局面的进程也不会跟着死。
-    run_remote "cd ${BOARD_ROOT} && DISPLAY=:0 XAUTHORITY=/home/${BOARD_USER}/.Xauthority \
-setsid bash -c './bin/eye_range --log-level info > /tmp/eye_range_ui.log 2>&1' </dev/null >/dev/null 2>&1 & \
+    #
+    # 这里不能走 run_remote：它会加 `cd ${BOARD_ROOT} && ` 前缀，而后台任务一旦写成
+    # `cd A && cd B && setsid ... &` 这种复合列表，远端 shell 会一直 wait 这串列表，
+    # SSH 通道不关闭，本机命令就挂住不返回（实测）。
+    # 所以把 cd 挪进内层 bash -c，并 exec 掉，让后台任务保持为「简单命令」。
+    python3 "${SCRIPT_DIR}/board.py" run "\
+DISPLAY=:0 XAUTHORITY=/home/${BOARD_USER}/.Xauthority \
+setsid bash -c 'cd ${BOARD_ROOT} && exec ./bin/eye_range --log-level info > /tmp/eye_range_ui.log 2>&1' </dev/null >/dev/null 2>&1 & \
 sleep 6; if pgrep -x eye_range >/dev/null; then echo '界面已启动（日志 /tmp/eye_range_ui.log，停止: pkill -x eye_range）'; \
 grep -E '标定|立体测距|流水线' /tmp/eye_range_ui.log | tail -3; \
 else echo '启动失败:'; tail -5 /tmp/eye_range_ui.log; fi"

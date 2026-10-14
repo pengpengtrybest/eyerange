@@ -4,7 +4,7 @@
 
 | 项 | 值 |
 |---|---|
-| 主机名/IP | `orangepi5max` / `192.168.228.113`（用户 `orangepi`；密码只放本地 `scripts/board_env.sh`，不入库） |
+| 主机名/IP | `orangepi5max` / `192.168.228.56`（**DHCP，会变**；用户 `orangepi`；密码只放本地 `scripts/board_env.sh`，不入库） |
 | 系统 | Ubuntu 22.04.5 LTS, kernel 6.1.43-rockchip-rk3588, aarch64 |
 | CPU/内存 | 8 核（4×A76 + 4×A55），约 7.9GB |
 | 磁盘 | 根分区 112G，剩余 ~96G |

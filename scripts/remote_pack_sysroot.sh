@@ -22,11 +22,12 @@ cp -a "${TRIPLET_DIR}/cmake/opencv4" "${LIB_DST}/cmake/"
 cp -a "${TRIPLET_DIR}/pkgconfig/opencv4.pc" "${LIB_DST}/pkgconfig/"
 
 opencv_paths=$(ls ${TRIPLET_DIR}/libopencv_*.so*)
+opencv_soversion_glob="${TRIPLET_DIR}/libopencv_*.so.[0-9]*"
 
 # 2) 依赖闭包（libjpeg/libpng/libtiff/openjpeg/protobuf 等）
 #    排除 libc/libstdc++/libgcc/动态加载器：这些沿用交叉工具链自带版本，
 #    避免链接期绑定比目标机更新的 glibc 符号。
-deps=$(ldd ${TRIPLET_DIR}/libopencv_*.so.4.5.4d 2>/dev/null \
+deps=$(ldd ${opencv_soversion_glob} 2>/dev/null \
   | awk '/=> \// {print $3}' \
   | sort -u \
   | grep -v -E 'libc\.so|libm\.so|libpthread|libdl\.so|librt\.so|ld-linux|libgcc_s|libstdc\+\+' || true)

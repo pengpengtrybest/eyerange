@@ -19,12 +19,18 @@ Orangepi 5 Max（RK3588）+ DECXIN 双目相机上的**双目 YOLO 识别 + 立�
 
 | 项 | 值 |
 |---|---|
-| 开发板 | `orangepi@192.168.228.113`（Ubuntu 22.04 / kernel 6.1.43-rockchip / 8 核 / 8GB） |
+| 开发板 | `orangepi@192.168.228.56`（Ubuntu 22.04 / kernel 6.1.43-rockchip / 8 核 / 8GB）。**IP 走 DHCP 会变**，当前地址以 `scripts/board_env.sh` 为准 |
 | 相机 | DECXIN UVC 双目，`/dev/video0` 输出左右拼接，MJPG 2560x960@30（每目 1280x960） |
 | 板上软件 | OpenCV 4.5.4（含 contrib）/ Qt 5.15.3 运行时 / librknnrt 2.3.2 / Xorg 跑在 `:0` |
 | 本机工具链 | `/opt/toolchains/gcc-linaro-7.5.0-...-aarch64-linux-gnu`（GCC 7.5） |
 | 本机 Qt | `/opt/qt5-arm`（Qt 5.15.2 交叉库，仅编译期用） |
 | 凭据 | 只放本地 `scripts/board_env.sh`（**已 gitignore，禁止入库**） |
+
+> **动手前先核对板子身份**：板子可能被重刷或换成另一块。先跑 `scripts/run_board.sh sysinfo`，
+> 确认内核 / 系统 / OpenCV / Qt 版本与上表一致；不一致就别改代码——典型症状是
+> `cd: /home/orangepi/eye_range: No such file or directory`（部署目录不存在）
+> 或产物 `ldd` 一堆 `not found`（新镜像没装 OpenCV/Qt）。处理见 `doc/06` 第 11 节。
+> 连接参数优先级：**环境变量 > `scripts/board_env.sh` > `scripts/board_env.defaults.sh`**。
 
 ## 3. 目录契约
 

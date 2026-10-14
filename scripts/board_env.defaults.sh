@@ -3,14 +3,16 @@
 #
 # 真实凭据请放在 scripts/board_env.sh（该文件在 .gitignore 中，不会入库）：
 #   cat > scripts/board_env.sh <<'EOF'
-#   export BOARD_HOST=192.168.228.113
+#   export BOARD_HOST=192.168.228.56
 #   export BOARD_USER=orangepi
 #   export BOARD_PASS=你的密码
 #   export BOARD_ROOT=/home/orangepi/eye_range
 #   EOF
 # 也可以直接用环境变量覆盖，例如 BOARD_PASS=xxx scripts/run_board.sh sysinfo
 
-export BOARD_HOST="${BOARD_HOST:-192.168.228.113}"
+# 注意：板子走 DHCP，地址会变（历史上用过 192.168.228.113、192.168.228.56）。
+# 当前地址可在私有文件 scripts/board_env.sh 里覆盖。
+export BOARD_HOST="${BOARD_HOST:-192.168.228.56}"
 export BOARD_USER="${BOARD_USER:-orangepi}"
 export BOARD_PORT="${BOARD_PORT:-22}"
 export BOARD_ROOT="${BOARD_ROOT:-/home/orangepi/eye_range}"

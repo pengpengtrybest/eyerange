@@ -62,7 +62,7 @@ def _setting(name, default=""):
     return os.environ.get(name) or _LOCAL.get(name) or default
 
 
-HOST = _setting("BOARD_HOST", "192.168.228.113")
+HOST = _setting("BOARD_HOST", "192.168.228.56")
 USER = _setting("BOARD_USER", "orangepi")
 PASS = _setting("BOARD_PASS")  # 密码只来自环境变量或 scripts/board_env.sh
 PORT = int(_setting("BOARD_PORT", "22"))

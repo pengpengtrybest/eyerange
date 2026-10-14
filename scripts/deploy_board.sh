@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 # 打包运行所需文件并上传到开发板
-#   build/bundle/{bin,model,config} -> orangepi@192.168.228.113:/home/orangepi/eye_range
+#   build/bundle/{bin,model,config} -> orangepi@<BOARD_HOST>:/home/orangepi/eye_range
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# shellcheck source=board_env.sh
-source "${SCRIPT_DIR}/board_env.defaults.sh"
+# 先读本地私有配置，再用默认值兜底：
+# 优先级 = 环境变量 > scripts/board_env.sh > scripts/board_env.defaults.sh
 if [[ -f "${SCRIPT_DIR}/board_env.sh" ]]; then
   # 本地私有凭据（不入库）
   # shellcheck source=board_env.sh
   source "${SCRIPT_DIR}/board_env.sh"
 fi
+# shellcheck source=board_env.sh
+source "${SCRIPT_DIR}/board_env.defaults.sh"
 
 cd "${PROJECT_ROOT}"
 

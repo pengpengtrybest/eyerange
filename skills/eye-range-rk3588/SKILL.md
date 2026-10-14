@@ -19,6 +19,12 @@ metadata:
 
 - **不要在板上重新编译**：本机交叉编译 + 只传自研可执行文件/模型/配置。
   OpenCV、Qt、librknnrt 都用板上的；传 Qt 库反而会与板上插件版本冲突。
+- **先核对板子身份再动手**：板子可能被重刷或换成另一块，`/home/orangepi/eye_range`
+  会随之消失。`run_board.sh` 报 `cd: /home/orangepi/eye_range: No such file or directory`，
+  或产物 `ldd` 一堆 `not found`，都先跑 `scripts/run_board.sh sysinfo` 对照内核/系统/
+  OpenCV/Qt 版本（细节见 `doc/06` 第 11 节）。板卡 IP 走 DHCP 会变，连接参数优先级是
+  **环境变量 > `scripts/board_env.sh` > `scripts/board_env.defaults.sh`**。
+  重跑 `bootstrap_sysroot.sh` 前先把旧 `build/sysroot` 改名留档——旧板不在就再也生成不出来。
 - **sysroot 从板上来**：`build/sysroot` 由 `scripts/bootstrap_sysroot.sh` 生成
   （工具链 libc 打底 + 板上 OpenCV 头/库/依赖闭包）。换板子或板上升级 OpenCV 后必须重跑。
 - **Qt**：编译期用本机 `/opt/qt5-arm`（5.15.2），运行期用板上 5.15.3，靠同 minor 二进制兼容。
@@ -80,6 +86,11 @@ scripts/run_board.sh ui          # 在 HDMI 显示器上启动 Qt 界面
 
 > SSH 启动板上 GUI 时要 `setsid ... </dev/null >/dev/null 2>&1 &`：
 > 普通 `nohup ... &` 会让后台进程占住 SSH 通道，命令迟迟不返回。
+> 更精确地说，**后台任务必须写成简单命令**：
+> `setsid bash -c 'cd /home/orangepi/eye_range && exec ./bin/eye_range ...' </dev/null >/dev/null 2>&1 &`。
+> 写成 `cd A && cd B && setsid ... &` 这种复合列表，远端 shell 会一直 `wait` 子进程
+> （`wchan=do_wait`），SSH 通道不关，本机命令挂死不返回（实测 >25s；简单命令 4.6s 返回，
+> 见 `doc/06` 第 13 节）。
 
 排查“界面把板子搞重启”的方法：用 `scripts/board_stress_test.sh` 带监控跑，
 对比 headless / 窗口 / 无边框铺满 / 真全屏四种形态，并核对负载与温度

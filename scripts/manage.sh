@@ -9,12 +9,14 @@
 set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# shellcheck source=board_env.defaults.sh
-source "${SCRIPT_DIR}/board_env.defaults.sh"
+# 先读本地私有配置，再用默认值兜底：
+# 优先级 = 环境变量 > scripts/board_env.sh > scripts/board_env.defaults.sh
 if [[ -f "${SCRIPT_DIR}/board_env.sh" ]]; then
   # shellcheck source=board_env.sh
   source "${SCRIPT_DIR}/board_env.sh"
 fi
+# shellcheck source=board_env.sh
+source "${SCRIPT_DIR}/board_env.defaults.sh"
 
 ROOT="${PROJECT_ROOT}"
 cd "${ROOT}"

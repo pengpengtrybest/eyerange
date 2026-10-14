@@ -7,7 +7,7 @@
 
 ## 上下文（必须知道的事实）
 
-- 工程根：`/home/peng/eye_range`；板：`orangepi@192.168.228.113`，
+- 工程根：`/home/peng/eye_range`；板：`orangepi@192.168.228.56`（DHCP，会变），
   密码放在本地 `scripts/board_env.sh`（不入库，见 `board_env.defaults.sh`）。
 - 本机交叉编译，产物只传自研文件，OpenCV/Qt/RKNN 用板上的。
 - 参考技能：`skills/eye-range-rk3588/SKILL.md`（先读它，再读对应 reference）。
